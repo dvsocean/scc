@@ -3,8 +3,9 @@ package com.tuesdayProducer.tuesdayProducer;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
-public class BookTests {
+public class BookTDDFirstApplicationTests {
 
   private BookRack bookRack = new BookRack();
 
@@ -16,5 +17,10 @@ public class BookTests {
   @Test
   public void shouldReturnBookByTitle() {
     assertEquals("Identity", bookRack.findByTitle("identity").getTitle());
+  }
+
+  @Test
+  public void shouldReturnBookByPublishingYear() {
+    assertEquals(2017, bookRack.findByPubYear(2017).getPubYear());
   }
 }
