@@ -12,4 +12,9 @@ public class BookTests {
   public void shouldReturnBookByAuthor() {
     assertEquals("John Bevere", bookRack.findByAuthor("Bevere").getAuthor());
   }
+
+  @Test
+  public void shouldReturnBookByTitle() {
+    assertEquals("Identity", bookRack.findByTitle("identity").getTitle());
+  }
 }

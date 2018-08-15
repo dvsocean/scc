@@ -1,5 +1,6 @@
 package com.tuesdayConsumer.tuesdayConsumer;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -28,6 +29,14 @@ public class ContractTestProducerService {
   public void shouldVerifyContract() throws Exception {
     mockMvc.perform(post("/bookByAuthor").param("author", "Jakes"))
         .andExpect(status().isOk()).andExpect(jsonPath("author").value("TD Jakes"))
+        .andExpect(jsonPath("title").value("Identity"))
+        .andExpect(jsonPath("pubYear").value(2017));
+  }
+
+  @Test
+  public void shouldVerifyByTitle() throws Exception {
+    mockMvc.perform(get("/title/Identity")).andExpect(status().isOk())
+        .andExpect(jsonPath("author").value("TD Jakes"))
         .andExpect(jsonPath("title").value("Identity"))
         .andExpect(jsonPath("pubYear").value(2017));
   }

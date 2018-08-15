@@ -22,4 +22,13 @@ public class BookRack {
       }
     return null;
   }
+
+  public Books findByTitle(String title) {
+    for(Books book: list) {
+      if(book.getTitle().toLowerCase().contains(title.toLowerCase())){
+        return book;
+      }
+    }
+    return null;
+  }
 }
