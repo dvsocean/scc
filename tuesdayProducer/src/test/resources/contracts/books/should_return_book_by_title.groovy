@@ -21,4 +21,5 @@ Contract.make {
                 pubYear: 2017
         )
     }
+
 }
