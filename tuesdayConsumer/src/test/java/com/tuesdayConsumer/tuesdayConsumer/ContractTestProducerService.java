@@ -25,13 +25,13 @@ public class ContractTestProducerService {
   @Autowired
   MockMvc mockMvc;
 
-  @Test
-  public void shouldVerifyContract() throws Exception {
-    mockMvc.perform(post("/bookByAuthor").param("author", "Jakes"))
-        .andExpect(status().isOk()).andExpect(jsonPath("author").value("TD Jakes"))
-        .andExpect(jsonPath("title").value("Identity"))
-        .andExpect(jsonPath("pubYear").value(2017));
-  }
+//  @Test
+//  public void shouldVerifyByAuthor() throws Exception {
+//    mockMvc.perform(post("/bookByAuthor").param("author", "Jakes"))
+//        .andExpect(status().isOk()).andExpect(jsonPath("author").value("TD Jakes"))
+//        .andExpect(jsonPath("title").value("Identity"))
+//        .andExpect(jsonPath("pubYear").value(2017));
+//  }
 
   @Test
   public void shouldVerifyByTitle() throws Exception {
