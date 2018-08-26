@@ -57,4 +57,40 @@ public class BookRack {
     }
     return null;
   }
-}
+
+  public Books addBook(String title, String author, int pubYear){
+    list.add(new Books(title, author, pubYear));
+    for(Books book: list) {
+      if(book.getTitle().equalsIgnoreCase(title)){
+        return book;
+      }
+    }
+    return null;
+  }
+
+  public Books updateResource(String title, String editor, boolean isReleased, String movie){
+    for(Books book: list) {
+      if(book.getTitle().equalsIgnoreCase(title)){
+        book.setEditor(editor);
+        book.setReleased(isReleased);
+        book.setMovie(movie);
+        return book;
+      }
+    }
+    return null;
+  }
+
+  public String deleteResource(String title){
+    for(Books book: list) {
+      if(book.getTitle().equalsIgnoreCase(title)){
+        list.remove(book);
+        return title + " was successfully removed. There are " + list.size() + " books left on the rack";
+      }
+    }
+    return null;
+  }
+
+
+
+
+}//End of class
